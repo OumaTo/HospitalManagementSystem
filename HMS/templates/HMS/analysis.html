@@ -1,0 +1,580 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy You Hospital</title>
+
+    <link href="{% static 'css/lib/font-awesome.min.css' %} " rel="stylesheet">
+    <link href=" {% static 'css/lib/themify-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'css/lib/jquery-ui.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/lib/font-awesome.min.css' %} " rel="stylesheet">
+    <link href=" {% static 'css/lib/themify-icons.css' %}" rel="stylesheet">
+    <link href=" {% static 'css/lib/weather-icons.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/lib/bootstrap.min.css' %}">
+<style>
+    .stat-widget-one .stat-icon {
+        vertical-align: top;
+      }
+      .stat-widget-one .stat-icon i {
+        font-size: 30px;
+        border-width: 3px;
+        border-style: solid;
+        border-radius: 100px;
+        padding: 15px;
+        font-weight: 900;
+        display: inline-block;
+      }
+      .stat-widget-one .stat-content {
+        margin-left: 30px;
+        margin-top: 7px;
+      }
+      .stat-widget-one .stat-text {
+        font-size: 14px;
+        color: #868e96;
+      }
+      .stat-widget-one .stat-digit {
+        font-size: 24px;
+        color: #373757;
+      }
+      /*    Widget Two
+      ---------------------------*/
+      .stat-widget-two {
+        text-align: center;
+      }
+      .stat-widget-two .stat-digit {
+        font-size: 1.75rem;
+        font-weight: 500;
+        color: #373757;
+      }
+      .stat-widget-two .stat-digit i {
+        font-size: 18px;
+        margin-right: 5px;
+      }
+      .stat-widget-two .stat-text {
+        font-size: 16px;
+        margin-bottom: 5px;
+        color: #868e96;
+      }
+      .stat-widget-two .progress {
+        height: 8px;
+        margin-bottom: 0;
+        margin-top: 20px;
+        box-shadow: none;
+      }
+      .stat-widget-two .progress-bar {
+        box-shadow: none;
+      }
+      /*    Widget Three
+      ---------------------------*/
+      .stat-widget-three .stat-icon {
+        display: inline-block;
+        padding: 33px;
+        position: absolute;
+        line-height: 21px;
+      }
+      .stat-widget-three .stat-icon i {
+        font-size: 30px;
+        color: #ffffff;
+      }
+      .stat-widget-three .stat-content {
+        text-align: center;
+        padding: 15px;
+        margin-left: 90px;
+      }
+      .stat-widget-three .stat-digit {
+        font-size: 30px;
+      }
+      .stat-widget-three .stat-text {
+        padding-top: 4px;
+      }
+      .home-widget-three .stat-icon {
+        line-height: 19px;
+        padding: 27px;
+      }
+      .home-widget-three .stat-digit {
+        font-size: 24px;
+        font-weight: 300;
+        color: #373757;
+      }
+      .home-widget-three .stat-content {
+        text-align: center;
+        margin-left: 60px;
+        padding: 13px;
+      }
+      .stat-widget-four {
+        position: relative;
+      }
+      .stat-widget-four .stat-icon {
+        display: inline-block;
+        position: absolute;
+        top: 5px;
+      }
+      .stat-widget-four i {
+        display: block;
+        font-size: 36px;
+      }
+      .stat-widget-four .stat-content {
+        margin-left: 40px;
+        text-align: center;
+      }
+      .stat-widget-four .stat-heading {
+        font-size: 20px;
+      }
+      .stat-widget-five .stat-icon {
+        border-radius: 100px;
+        display: inline-block;
+        position: absolute;
+      }
+      .stat-widget-five i {
+        border-radius: 100px;
+        display: block;
+        font-size: 36px;
+        padding: 30px;
+      }
+      .stat-widget-five .stat-content {
+        margin-left: 100px;
+        padding: 24px 0;
+        position: relative;
+        text-align: right;
+        vertical-align: middle;
+      }
+      .stat-widget-five .stat-heading {
+        text-align: right;
+        padding-left: 80px;
+        font-size: 20px;
+        font-weight: 200;
+      }
+      .stat-widget-six {
+        position: relative;
+      }
+      .stat-widget-six .stat-icon {
+        display: inline-block;
+        position: absolute;
+        top: 5px;
+      }
+      .stat-widget-six i {
+        display: block;
+        font-size: 36px;
+      }
+      .stat-widget-six .stat-content {
+        margin-left: 40px;
+        text-align: center;
+      }
+      .stat-widget-six .stat-heading {
+        font-size: 16px;
+        font-weight: 300;
+      }
+      .stat-widget-six .stat-text {
+        font-size: 12px;
+        padding-top: 4px;
+      }
+      .stat-widget-seven .stat-heading {
+        text-align: center;
+      }
+      .stat-widget-seven .gradient-circle {
+        text-align: center;
+        position: relative;
+        margin: 30px auto;
+        display: inline-block;
+        width: 100%;
+      }
+      .stat-widget-seven .gradient-circle i {
+        position: absolute;
+        left: 0;
+        right: 0;
+        text-align: center;
+        top: 35px;
+        font-size: 30px;
+      }
+      .stat-widget-seven .stat-footer {
+        text-align: center;
+        margin-top: 30px;
+      }
+      .stat-widget-seven .stat-footer .stat-count {
+        padding-left: 5px;
+      }
+      .stat-widget-seven .count-header {
+        color: #252525;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 30px;
+      }
+      .stat-widget-seven .stat-count {
+        font-size: 18px;
+        font-weight: 400;
+        color: #252525;
+      }
+      .stat-widget-seven .analytic-arrow {
+        position: relative;
+      }
+      .stat-widget-seven .analytic-arrow i {
+        font-size: 12px;
+      }
+      /* Stat widget Eight
+      --------------------------- */
+      .stat-widget-eight {
+        padding: 15px;
+      }
+      .stat-widget-eight .header-title {
+        font-size: 20px;
+        font-weight: 300;
+      }
+      .stat-widget-eight .ti-more-alt {
+        color: #878787;
+        cursor: pointer;
+        left: -5px;
+        position: absolute;
+        transform: rotate(90deg);
+      }
+      .stat-widget-eight .stat-content {
+        margin-top: 50px;
+      }
+      .stat-widget-eight .stat-content .ti-arrow-up {
+        font-size: 30px;
+        color: #28a745;
+      }
+      .stat-widget-eight .stat-content .stat-digit {
+        font-size: 24px;
+        font-weight: 300;
+        margin-left: 15px;
+      }
+      .stat-widget-eight .stat-content .progress-stats {
+        color: #aaadb2;
+        font-weight: 400;
+        position: relative;
+        top: 10px;
+      }
+      .stat-widget-eight .progress {
+        margin-bottom: 0;
+        margin-top: 30px;
+        height: 7px;
+        background: #EAEAEA;
+        box-shadow: none;
+      }
+      .stat-widget-nine .all-like {
+        float: right;
+      }
+      .stat-widget-nine .stat-icon i {
+        font-size: 22px;
+      }
+      .stat-widget-nine .stat-text {
+        font-size: 14px;
+      }
+      .stat-widget-nine .stat-digit {
+        font-size: 14px;
+      }
+      .stat-widget-nine .like-count {
+        font-size: 30px;
+      }
+      .horizontal {
+        position: relative;
+      }
+      .horizontal:before {
+        background: #ffffff;
+        bottom: 0;
+        content: "";
+        height: 38px;
+        left: 0;
+        margin: 0 auto;
+        position: absolute;
+        right: 0;
+        width: 1px;
+      }
+      .widget-ten span i {
+        color: #ffffff;
+        opacity: 0.5;
+      }
+      .widget-ten h5 {
+        color: #ffffff;
+      }
+      .widget-ten p {
+        color: #ffffff !important;
+        opacity: 0.75;
+      }
+ 
+      @media (max-width: 768px) {
+        .card {
+          display: inline-block;
+          width: 100%;
+        }
+      }
+      @media (max-width: 360px) {
+        .stat-widget-five .stat-heading {
+          padding-left: 0;
+        }
+        .stat-widget-two .stat-digit {
+          font-size: 16px;
+        }
+        .stat-widget-two .stat-text {
+          font-size: 14px;
+        }
+        .stat-widget-three .stat-digit {
+          font-size: 20px;
+        }
+        .stat-widget-four .stat-heading {
+          font-size: 18px;
+        }
+        .stat-widget-three .stat-icon {
+          padding: 26px;
+        }
+      }
+        .buttons {
+          margin-left: 20px;
+        }
+        .buttons {
+          display: inline-block;
+      }
+      .buttons {
+        margin-bottom: 15px;
+      }
+</style>
+</head>
+<body>
+    <div class="container-fluid ">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><span class="text-primary mx-3">HEALTHY YOU</span> HMS</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="index">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="staff">Statistics</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link mx-3" href="appointments">Book Appointment</a>
+            </li>
+            <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                    <a class="dropdown-item" href="#">Action 1</a>
+                    <a class="dropdown-item" href="#">Action 2</a>
+                </div>
+            </li> -->
+            <form class="form-inline my-3 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search for Service">
+                <button class="btn btn-outline-success my-2 mx-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </ul>
+        <li class="nav-item active">
+        </li>
+    </div>
+    </nav>
+
+    <div class="content-wrap">
+        <div class="main">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8 p-r-0 title-margin-right">
+                            <div class="page-title">
+                                <h1>Hello, <span>Welcome Back</span></h1>
+                            </div>
+                    </div>
+                    <!-- /# column -->
+                    <div class="col-lg-4 p-l-0 title-margin-left">
+                        <div class="page-header">
+
+                        </div>
+                    </div>
+                    <!-- /# column -->
+                </div>
+                <!-- /# row -->
+                <section id="main-content">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-title text-center">All Patients</div>
+                                <hr>
+
+                                <div class="bootstrap-data-table-panel">
+                                    <div class="table-responsive">
+                                        <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Patient Name</th>
+                                                    <th>Age</th>
+                                                    <th>Case</th>
+                                                    <th>Date Served</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for patient in patients %}
+                                                
+                                                <tr>
+                                                    <td>{{patient.Name}}</td>
+                                                    <td>{{patient.Age}}</td>
+                                                    <td>{{patient.Illness}}</td>
+                                                    <td>{{patient.Date}}</td>
+
+                                                </tr>
+                                                {% endfor %}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /# card -->
+                        </div>
+                        <!-- /# column -->
+                    </div>
+                    <!-- /# row -->
+                    <div class="row mt-4">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-title text-center">Appointments</div>
+                                <hr>
+
+                                <div class="bootstrap-data-table-panel">
+                                    <div class="table-responsive">
+                                        <table id="" class="table table-striped table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Patient Name</th>
+                                                    <th>Age</th>
+                                                    <th>Case</th>
+                                                    <th>Date Submitted</th>
+                                                    <th>Status</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for appointment in appointments %}
+                                                
+                                                <tr>
+                                                    <td>{{appointment.FirstName}}</td>
+                                                    <td>{{appointment.Age}}</td>
+                                                    <td>{{appointment.Category}}</td>
+                                                    <td>{{appointment.Date}}</td>
+                                                    <td>{{appointment.Status}}</td>
+
+                                                </tr>
+
+                                                {% endfor %}
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /# card -->
+                        </div>
+                        <!-- /# column -->
+                    </div>
+                    <!-- /# row -->
+                </section>
+
+                <section class="container mt-4">
+                    {% for info in data %}
+
+                    <div class="row">
+
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="stat-widget-one m-2">
+                                    <div class="stat-icon dib"><i class="ti-heart color-success border-success"></i>
+                                    </div>
+                                    <div class="stat-content dib">
+                                        <div class="stat-text">Drugs</div>
+                                        <div class="stat-digit">{{info.Drugs}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="stat-widget-one m-2">
+                                    <div class="stat-icon dib"><i class="ti-stats-up color-primary border-primary"></i>
+                                    </div>
+                                    <div class="stat-content dib">
+                                        <div class="stat-text">Admitted</div>
+                                        <div class="stat-digit">{{info.Admitted}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="stat-widget-one m-2">
+                                    <div class="stat-icon dib"><i class="ti-pulse color-danger border-pink"></i>
+                                    </div>
+                                    <div class="stat-content dib">
+                                        <div class="stat-text">Emergency Cases</div>
+                                        <div class="stat-digit">{{info.Emergency}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="stat-widget-one m-2">
+                                    <div class="stat-icon dib"><i class="ti-user color-danger border-danger"></i></div>
+                                    <div class="stat-content dib">
+                                        <div class="stat-text">Patients</div>
+                                        <div class="stat-digit">{{info.Patients}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    {% endfor %}
+                </section>
+
+            </div>
+        </div>
+    </div>
+    <section class="footer">
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-center"> Welcome To Healthy You Hospital </h5>
+                <p class="card-title text-center">2023 ©  - <a href="#">HMS.com</a></p>
+                
+            <div class="container text-center m-2">
+                <i class="ti-facebook m-2 text-primary"></i>
+                <i class="ti-youtube m-2 text-danger"></i>
+                <i class="ti-twitter m-2 text-primary"></i>                     
+                <i class="ti-linkedin m-2 text-info"></i>
+            </div>
+            </div> 
+        </div>
+        </section>
+
+
+
+
+
+
+    
+    <!-- jquery vendor -->
+    <script src="{% static 'js/lib/jquery.min.js' %} "></script>
+
+    <!-- bootstrap -->
+
+    <script src="{% static 'js/lib/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/scripts.js' %} "></script>
+    <script src="{% static 'js/bootstrap.js' %} "></script>
+
+    <!-- scripit init-->
+    <script src="{% static 'js/lib/data-table/datatables.min.js' %}"></script>
+    <script src="{% static 'js/lib/data-table/dataTables.buttons.min.js' %}"></script>
+    <script src="{% static 'js/lib/data-table/buttons.flash.min.js' %}"></script>
+    <script src="{% static 'js/lib/data-table/jszip.min.js' %}"></script>
+    <script src="{% static 'js/lib/data-table/pdfmake.min.js' %}"></script>
+    <script src="{% static 'js/lib/data-table/vfs_fonts.js' %}"></script>
+    <script src="{% static 'js/lib/data-table/buttons.html5.min.js' %}"></script>
+    <script src="{% static 'js/lib/data-table/buttons.print.min.js' %}"></script>
+    <script src="{% static 'js/lib/data-table/datatables-init.js' %}"></script>
+
+</div>
+</body>
+
+</html>

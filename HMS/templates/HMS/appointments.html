@@ -1,0 +1,518 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMS</title>
+
+    <link href="{% static 'css/lib/font-awesome.min.css' %} " rel="stylesheet">
+    <link href=" {% static 'css/lib/themify-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/lib/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lib/bootstrap.min.css' %}">
+    <style>
+        .stat-widget-one .stat-icon {
+            vertical-align: top;
+          }
+          .stat-widget-one .stat-icon i {
+            font-size: 30px;
+            border-width: 3px;
+            border-style: solid;
+            border-radius: 100px;
+            padding: 15px;
+            font-weight: 900;
+            display: inline-block;
+          }
+          .stat-widget-one .stat-content {
+            margin-left: 30px;
+            margin-top: 7px;
+          }
+          .stat-widget-one .stat-text {
+            font-size: 14px;
+            color: #868e96;
+          }
+          .stat-widget-one .stat-digit {
+            font-size: 24px;
+            color: #373757;
+          }
+          /*    Widget Two
+          ---------------------------*/
+          .stat-widget-two {
+            text-align: center;
+          }
+          .stat-widget-two .stat-digit {
+            font-size: 1.75rem;
+            font-weight: 500;
+            color: #373757;
+          }
+          .stat-widget-two .stat-digit i {
+            font-size: 18px;
+            margin-right: 5px;
+          }
+          .stat-widget-two .stat-text {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #868e96;
+          }
+          .stat-widget-two .progress {
+            height: 8px;
+            margin-bottom: 0;
+            margin-top: 20px;
+            box-shadow: none;
+          }
+          .stat-widget-two .progress-bar {
+            box-shadow: none;
+          }
+          /*    Widget Three
+          ---------------------------*/
+          .stat-widget-three .stat-icon {
+            display: inline-block;
+            padding: 33px;
+            position: absolute;
+            line-height: 21px;
+          }
+          .stat-widget-three .stat-icon i {
+            font-size: 30px;
+            color: #ffffff;
+          }
+          .stat-widget-three .stat-content {
+            text-align: center;
+            padding: 15px;
+            margin-left: 90px;
+          }
+          .stat-widget-three .stat-digit {
+            font-size: 30px;
+          }
+          .stat-widget-three .stat-text {
+            padding-top: 4px;
+          }
+          .home-widget-three .stat-icon {
+            line-height: 19px;
+            padding: 27px;
+          }
+          .home-widget-three .stat-digit {
+            font-size: 24px;
+            font-weight: 300;
+            color: #373757;
+          }
+          .home-widget-three .stat-content {
+            text-align: center;
+            margin-left: 60px;
+            padding: 13px;
+          }
+          .stat-widget-four {
+            position: relative;
+          }
+          .stat-widget-four .stat-icon {
+            display: inline-block;
+            position: absolute;
+            top: 5px;
+          }
+          .stat-widget-four i {
+            display: block;
+            font-size: 36px;
+          }
+          .stat-widget-four .stat-content {
+            margin-left: 40px;
+            text-align: center;
+          }
+          .stat-widget-four .stat-heading {
+            font-size: 20px;
+          }
+          .stat-widget-five .stat-icon {
+            border-radius: 100px;
+            display: inline-block;
+            position: absolute;
+          }
+          .stat-widget-five i {
+            border-radius: 100px;
+            display: block;
+            font-size: 36px;
+            padding: 30px;
+          }
+          .stat-widget-five .stat-content {
+            margin-left: 100px;
+            padding: 24px 0;
+            position: relative;
+            text-align: right;
+            vertical-align: middle;
+          }
+          .stat-widget-five .stat-heading {
+            text-align: right;
+            padding-left: 80px;
+            font-size: 20px;
+            font-weight: 200;
+          }
+          .stat-widget-six {
+            position: relative;
+          }
+          .stat-widget-six .stat-icon {
+            display: inline-block;
+            position: absolute;
+            top: 5px;
+          }
+          .stat-widget-six i {
+            display: block;
+            font-size: 36px;
+          }
+          .stat-widget-six .stat-content {
+            margin-left: 40px;
+            text-align: center;
+          }
+          .stat-widget-six .stat-heading {
+            font-size: 16px;
+            font-weight: 300;
+          }
+          .stat-widget-six .stat-text {
+            font-size: 12px;
+            padding-top: 4px;
+          }
+          .stat-widget-seven .stat-heading {
+            text-align: center;
+          }
+          .stat-widget-seven .gradient-circle {
+            text-align: center;
+            position: relative;
+            margin: 30px auto;
+            display: inline-block;
+            width: 100%;
+          }
+          .stat-widget-seven .gradient-circle i {
+            position: absolute;
+            left: 0;
+            right: 0;
+            text-align: center;
+            top: 35px;
+            font-size: 30px;
+          }
+          .stat-widget-seven .stat-footer {
+            text-align: center;
+            margin-top: 30px;
+          }
+          .stat-widget-seven .stat-footer .stat-count {
+            padding-left: 5px;
+          }
+          .stat-widget-seven .count-header {
+            color: #252525;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 30px;
+          }
+          .stat-widget-seven .stat-count {
+            font-size: 18px;
+            font-weight: 400;
+            color: #252525;
+          }
+          .stat-widget-seven .analytic-arrow {
+            position: relative;
+          }
+          .stat-widget-seven .analytic-arrow i {
+            font-size: 12px;
+          }
+          /* Stat widget Eight
+          --------------------------- */
+          .stat-widget-eight {
+            padding: 15px;
+          }
+          .stat-widget-eight .header-title {
+            font-size: 20px;
+            font-weight: 300;
+          }
+          .stat-widget-eight .ti-more-alt {
+            color: #878787;
+            cursor: pointer;
+            left: -5px;
+            position: absolute;
+            transform: rotate(90deg);
+          }
+          .stat-widget-eight .stat-content {
+            margin-top: 50px;
+          }
+          .stat-widget-eight .stat-content .ti-arrow-up {
+            font-size: 30px;
+            color: #28a745;
+          }
+          .stat-widget-eight .stat-content .stat-digit {
+            font-size: 24px;
+            font-weight: 300;
+            margin-left: 15px;
+          }
+          .stat-widget-eight .stat-content .progress-stats {
+            color: #aaadb2;
+            font-weight: 400;
+            position: relative;
+            top: 10px;
+          }
+          .stat-widget-eight .progress {
+            margin-bottom: 0;
+            margin-top: 30px;
+            height: 7px;
+            background: #EAEAEA;
+            box-shadow: none;
+          }
+          .stat-widget-nine .all-like {
+            float: right;
+          }
+          .stat-widget-nine .stat-icon i {
+            font-size: 22px;
+          }
+          .stat-widget-nine .stat-text {
+            font-size: 14px;
+          }
+          .stat-widget-nine .stat-digit {
+            font-size: 14px;
+          }
+          .stat-widget-nine .like-count {
+            font-size: 30px;
+          }
+          .horizontal {
+            position: relative;
+          }
+          .horizontal:before {
+            background: #ffffff;
+            bottom: 0;
+            content: "";
+            height: 38px;
+            left: 0;
+            margin: 0 auto;
+            position: absolute;
+            right: 0;
+            width: 1px;
+          }
+          .widget-ten span i {
+            color: #ffffff;
+            opacity: 0.5;
+          }
+          .widget-ten h5 {
+            color: #ffffff;
+          }
+          .widget-ten p {
+            color: #ffffff !important;
+            opacity: 0.75;
+          }
+     
+          @media (max-width: 768px) {
+            .card {
+              display: inline-block;
+              width: 100%;
+            }
+          }
+          @media (max-width: 360px) {
+            .stat-widget-five .stat-heading {
+              padding-left: 0;
+            }
+            .stat-widget-two .stat-digit {
+              font-size: 16px;
+            }
+            .stat-widget-two .stat-text {
+              font-size: 14px;
+            }
+            .stat-widget-three .stat-digit {
+              font-size: 20px;
+            }
+            .stat-widget-four .stat-heading {
+              font-size: 18px;
+            }
+            .stat-widget-three .stat-icon {
+              padding: 26px;
+            }
+          }
+          .dt-buttons {
+            margin-bottom: 15px;
+          }
+          .dt-buttons .dt-button {
+            background-image: none;
+            background: #ffffff;
+            color: #373757;
+            border-color: #e7e7e7;
+            margin-right: 10px;
+            padding: 7px 20px;
+            border-radius: 0px;
+          }
+          .dt-buttons .dt-button:hover:not(.disabled),
+          .dt-buttons .dt-button:focus,
+          .dt-buttons .dt-button.active {
+            background-image: none;
+            background: #5873fe;
+            color: #ffffff;
+          }
+          button.dt-button:hover:not(.disabled),
+          div.dt-button:hover:not(.disabled),
+          a.dt-button:hover:not(.disabled) {
+            background-color: #5873fe;
+            background-image: none;
+            border: 1px solid #5873fe;
+            box-shadow: none;
+            color: #ffffff;
+          }
+          button.dt-button:focus:not(.disabled),
+          div.dt-button:focus:not(.disabled),
+          a.dt-button:focus:not(.disabled) {
+            background-color: #5873fe;
+            background-image: none;
+            border: 1px solid #5873fe;
+            box-shadow: none;
+            color: #ffffff;
+          }
+          button.dt-button:active:hover:not(.disabled):not(.disabled),
+          button.dt-button.active:hover:not(.disabled):not(.disabled),
+          div.dt-button:active:hover:not(.disabled):not(.disabled),
+          div.dt-button.active:hover:not(.disabled):not(.disabled),
+          a.dt-button:active:hover:not(.disabled):not(.disabled),
+          a.dt-button.active:hover:not(.disabled):not(.disabled) {
+            background-color: #5873fe;
+            background-image: none;
+            border: 1px solid #5873fe;
+            box-shadow: none;
+            color: #ffffff;
+          }
+          button.dt-button:active:not(.disabled),
+          button.dt-button.active:not(.disabled),
+          div.dt-button:active:not(.disabled),
+          div.dt-button.active:not(.disabled),
+          a.dt-button:active:not(.disabled),
+          a.dt-button.active:not(.disabled) {
+            background-color: #5873fe;
+            background-image: none;
+            border: 1px solid #5873fe;
+            box-shadow: none;
+            color: #ffffff;
+    </style>
+</head>
+<body>
+    <div class="container-fluid ">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index"><span class="text-primary mx-3">HEALTHY YOU</span> HMS</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="index">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="staff">Statistics</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="appointments">Book Appointment</a>
+            </li>
+            <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                    <a class="dropdown-item" href="#">Action 1</a>
+                    <a class="dropdown-item" href="#">Action 2</a>
+                </div>
+            </li> -->
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search for Service">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+    </nav>
+
+<!-- Appointment Form  -->
+<section class="m-4">
+ <div class="container">
+    {% for message in messages %}
+    <div class='btn card-body text-secondary'>{{message}}</div>
+{% endfor %}
+<h1 class="text-center mb-3">Book Appointment</h1>
+<form action="" method='post'>
+    {% csrf_token %}
+    <div class="row mb-1">
+        <div class="col">
+            <label class="form-label">First Name</label>
+            <input type="text" name="firstname" class="form-control" placeholder="First name"
+                aria-label="First name" required>
+        </div>
+        <div class="col">
+            <label class="form-label">Last Name</label>
+            <input type="text" name="lastname" class="form-control" placeholder="Last name"
+                aria-label="Last name" required>
+        </div>
+    </div>
+    <div class="row mb-1">
+        <div class="col">
+            <label class="form-label">Phone</label>
+            <input type="text" name="phone" class="form-control" placeholder="Phone"
+                aria-label="Phone">
+        </div>
+        <div class="col">
+            <label class="form-label">Age</label>
+            <input type="text" name="age" class="form-control" placeholder="Age"
+                aria-label="Phone">
+        </div>
+    </div>
+    <div class="row mb-1">
+        <div class="col">
+            <label class="form-label">Category</label>
+            <input type="text" name="category" class="form-control" placeholder="Category(Illness/Service)"
+                aria-label="Subject" required>
+        </div>
+        <div class="col">
+            <label class="form-label">Date</label>
+            <!-- <input type="time" name="time" id="inputtime" class="form-control" value="" required="required" title=""> -->
+            
+            <input type="date" name="date" id="input" class="form-control" value="" required="required" title="">
+     
+        </div>
+    </div>
+    <div class="row mb-1">
+        <div class="col">
+            <label class="form-label">Description</label>
+            <textarea type="text" name="description" class="form-control" placeholder="Description"
+                aria-label="Message" required></textarea>
+        </div>
+        <div class="col">
+                <label class="form-label">Situation Level</label>
+                <div class="col-sm-2">
+                    <select name="situation" id="inputcritical" class="form-control" required="required">
+                        <option value="Very Critical">Very Critical</option>
+                        <option value="Moderately Critical">Moderately Critical</option>
+                        <option value="Not Critical">Not Critical</option>
+
+                    </select>
+            </div>
+            
+        </div>
+    </div>
+    <p class="text-center">
+        <button type="submit" class="btn btn-primary mt-3 ">Book Now</button>
+    </p>
+</form>
+
+</div>
+
+</section>
+
+</div>
+
+<section class="footer ">
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title text-center"> Welcome To Healthy You Hospital </h5>
+        <p class="card-title text-center">2023 ©  - <a href="#">HMS.com</a></p>
+        
+    <div class="container text-center m-2">
+        <i class="ti-facebook m-2 text-primary"></i>
+        <i class="ti-youtube m-2 text-danger"></i>
+        <i class="ti-twitter m-2 text-primary"></i>                     
+        <i class="ti-linkedin m-2 text-info"></i>
+    </div>
+    </div> 
+</div>
+</section>
+
+<script src="{% static 'js/bootstrap.js' %} "></script>
+<script src="{% static 'js/bootstrap.min.js' %} "></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/popper.js' %}"></script>
+<script src="{% static 'js/scripts.js' %}"></script>
+
+</body>
+</html>
